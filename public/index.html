@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Éclat Olfactif - Boutique de Parfumerie</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playwrite+IN:wght@100..400&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles/styles.css">
+</head>
+<body>
+    <section class="promo-banner">
+        <p>Profitez de -20% sur tous les parfums d'hiver ! <a href="#">Découvrir</a></p>
+    </section>
+    <header>
+        <div class="logo">
+            <img src="images/logo.jpg" alt="Éclat Olfactif">
+        </div>
+    </header>
+    <nav>
+        <ul>
+            <li><a href="#">Accueil</a></li>
+            <li><a href="boutique.html">Nos Parfums</a></li>
+            <li><a href="#">Promotions</a></li>
+            <li><a href="contact.html">Contactez nous</a></li>
+            <li><a href="panier.html">Panier</a></li>
+        </ul>
+    </nav>
+    <section class="slider">
+        <div class="slides">
+            <div class="slide">
+                <img src="images/parfum_ete.jpg" alt="Parfum d'été" />
+            </div>
+            <div class="slide">
+                <img src="images/parfum_hiver.jpg" alt="Parfum d'hiver" />
+            </div>
+        </div>
+        <div class="indicators">
+            <input type="radio" name="slide" id="slide1" class="radio" checked />
+            <label for="slide1"></label>
+            <input type="radio" name="slide" id="slide2" class="radio" />
+            <label for="slide2"></label>
+        </div>
+    </section>
+    <section id="classiques" class="classiques-container">
+        <h2 class="section-title">Nos Classiques</h2>
+        <p>Retrouvez nos parfums intemporels et emblématiques.</p>
+        <div id="classiques-container" class="parfum-container"></div>
+    </section>
+    <section class="partners">
+        <h2 class="section-title">Nos Partenaires</h2>
+        <div class="partner-logos">
+            <img src="/images/logo_margiela.jpg" alt="marque 1">
+            <img src="/images/prada.jpg" alt="marque 2">
+            <img src="/images/jean-paul-gaultier.jpg" alt="marque 3">
+        </div>
+    </section>
+    <section id="avis-clients" class="avis-clients-section">
+        <h2 class="section-title">Ce que disent nos clients</h2>
+        <div class="avis-container">
+            <div class="avis">
+                <p>"J'ai trouvé mon parfum préféré grâce à Éclat Olfactif. Une expérience exceptionnelle !" - <strong>Claire</strong></p>
+            </div>
+            <div class="avis">
+                <p>"Des parfums d'excellente qualité et un service client au top !" - <strong>Marc</strong></p>
+            </div>
+            <div class="avis">
+                <p>"Une boutique en ligne bien organisée avec une sélection incroyable de parfums." - <strong>Sophie</strong></p>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <p>&copy; 2025 Éclat Olfactif - Tous droits réservés</p>
+    </footer>
+    <script src="scripts/index.js"></script>
+</body>
+</html>

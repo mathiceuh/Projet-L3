@@ -1,0 +1,256 @@
+
+
+/* Reset default margins and padding */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+/* Promo banner */
+.promo-banner {
+    background-color: #ff6b6b;
+    color: white;
+    text-align: center;
+    padding: 10px 0;
+    font-size: 16px;
+    position: relative;
+    font-family: 'Playwrite IN', serif;
+
+}
+
+.promo-banner a {
+    color: white;
+    text-decoration: underline;
+    font-family: 'Playwrite IN', sans-serif;
+}
+
+/* General body style */
+body {
+    background-color: #fff;
+}
+
+/* Header style */
+header {
+    width: 100%;
+    height: 400px;
+    overflow: hidden;
+    position: relative;
+}
+
+header .logo img {
+    width: 100%;
+    height: 400px;
+    object-fit: cover;
+    display: block;
+}
+
+/* Navigation bar */
+nav {
+    background-color: #FEC9CE;
+    width: 100%;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+
+nav ul {
+    list-style: none;
+    display: flex;
+    justify-content: center;
+}
+
+nav ul li {
+    margin: 0 15px;
+}
+
+nav ul li a {
+    color: black;
+    text-decoration: none;
+    font-size: 18px;
+    padding: 12px 20px;
+    display: inline-block;
+    transition: all 0.3s ease;
+}
+
+nav ul li a:hover {
+    transform: scale(1.1);
+    background-color: #f5959e;
+    color: white;
+}
+
+/* Section for all perfumes */
+.parfums-container {
+    display: grid;
+    grid-template-columns: repeat(6, 1fr); /* 6 items per row */
+    gap: 20px; /* Space between items */
+    padding: 20px;
+    max-width: 1200px; /* Maximum width of the container */
+    margin: 0 auto; /* Center the container */
+}
+
+/* Perfume card */
+.parfum-card {
+    background-color: #fff;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    padding: 15px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    overflow: hidden;
+    width: 100%; /* Occupation complète de la cellule de grille */
+    max-width: 220px; /* Limiter la largeur à 220px pour ne pas s'étendre */
+}
+
+/* Hover effect on perfume card */
+.parfum-card:hover {
+    transform: scale(1.05);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+}
+
+.parfum-card img {
+    width: 100%;
+    height: 160px;
+    object-fit: cover;
+    border-radius: 5px;
+    margin-bottom: 10px;
+}
+
+.parfum-card h3 {
+    font-size: 16px;
+    color: #333;
+    margin: 10px 0 5px;
+}
+
+.parfum-card p {
+    font-size: 12px;
+    color: #666;
+    margin: 5px 0;
+}
+
+.products {
+    display: flex;
+    justify-content: space-around;
+}
+
+.product {
+    width: 30%;
+    text-align: center;
+}
+
+.product img {
+    width: 100%;
+    height: auto;
+    border-radius: 10px;
+}
+
+.product p {
+    margin-top: 10px;
+    font-size: 16px;
+}
+
+/* Footer */
+footer {
+    background-color: #333;
+    color: #fff;
+    text-align: center;
+    padding: 20px;
+    position: relative;
+    width: 100%;
+    bottom: 0;
+}
+
+/* Responsive improvements */
+@media (max-width: 1024px) {
+    .parfum-container {
+        grid-template-columns: repeat(5, 1fr); /* 5 parfums par ligne pour des écrans moyens */
+    }
+}
+
+@media (max-width: 768px) {
+    .parfum-container {
+        grid-template-columns: repeat(4, 1fr); /* 4 parfums par ligne sur petits écrans */
+    }
+}
+
+@media (max-width: 480px) {
+    .parfum-container {
+        grid-template-columns: repeat(2, 1fr); /* 2 parfums par ligne sur très petits écrans */
+    }
+}
+/* ✅ Conteneur des filtres : menu latéral */
+.filter-container {
+    position: absolute;
+    left: -250px; /* Caché au début */
+    top: 80px; /* Juste en dessous de la navbar */
+    width: 250px;
+    height: calc(100vh - 80px);
+    background: white;
+    border-right: 2px solid #ddd;
+    box-shadow: 2px 0px 10px rgba(0, 0, 0, 0.1);
+    padding: 15px;
+    transition: left 0.3s ease-in-out; /* Animation fluide */
+    overflow-y: auto;
+    z-index: 1000;
+}
+
+/* ✅ Lorsque le menu est actif, il apparaît */
+.filter-container.active {
+    left: 0;
+}
+
+/* ✅ Style du bouton pour ouvrir le menu */
+#filter-btn {
+    position: fixed;
+    top: 100px;
+    left: 10px;
+    background-color: #f5959e;
+    color: white;
+    border: none;
+    padding: 10px 15px;
+    font-size: 16px;
+    cursor: pointer;
+    border-radius: 5px;
+    z-index: 1100;
+    transition: transform 0.2s ease-in-out;
+}
+
+#filter-btn:hover {
+    transform: scale(1.1);
+}
+
+/* ✅ Style des cases à cocher */
+#filter-menu {
+    display: block; /* Toujours visible */
+    text-align: left;
+}
+
+#filter-menu label {
+    display: flex;
+    align-items: center;
+    margin: 10px 0;
+    cursor: pointer;
+    font-size: 14px;
+}
+
+#filter-menu input[type="checkbox"] {
+    margin-right: 10px;
+}
+
+/* ✅ Bouton "Appliquer" stylisé */
+#apply-filters {
+    width: 100%;
+    margin-top: 15px;
+    background-color: #f5959e;
+    border: none;
+    color: white;
+    padding: 8px;
+    cursor: pointer;
+    border-radius: 5px;
+    font-size: 14px;
+    transition: background 0.2s ease-in-out;
+}
+
+#apply-filters:hover {
+    background-color: #e35d6a;
+}

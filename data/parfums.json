@@ -1,0 +1,462 @@
+[
+  {
+    "id": 1,
+    "nom": "Bleu de Chanel",
+    "marque": "Chanel",
+    "type": "Été",
+    "classique": true,
+    "prix": 95,
+    "image": "/images/bleu_de_chanel.jpg",
+    "description": "Un parfum frais et dynamique, symbole de la masculinité moderne avec des notes boisées et d'agrumes."
+  },
+  {
+    "id": 2,
+    "nom": "Dior Sauvage",
+    "marque": "Dior",
+    "type": "Toute l'année",
+    "classique": true,
+    "prix": 85,
+    "image": "/images/dior_sauvage.jpg",
+    "description": "Un parfum puissant et frais avec des notes épicées et boisées, parfait pour l'homme audacieux."
+  },
+  {
+    "id": 3,
+    "nom": "La Vie est Belle",
+    "marque": "Lancôme",
+    "classique": true,
+    "type": "Hiver",
+    "prix": 105,
+    "image": "/images/la_vie_est_belle.jpg",
+    "description": "Un parfum floral et sucré, symbolisant le bonheur et la liberté, avec des notes de praline et de vanille."
+  },
+  {
+    "id": 4,
+    "nom": "Chloé Eau de Parfum",
+    "marque": "Chloé",
+    "type": "Printemps",
+    "classique": true,
+    "prix": 120,
+    "image": "/images/chloe_eau_de_parfum.jpg",
+    "description": "Un parfum élégant et féminin, avec des notes de rose et de magnolia, parfait pour les journées printanières."
+  },
+  {
+    "id": 5,
+    "nom": "Acqua di Gioia",
+    "marque": "Giorgio Armani",
+    "type": "Été",
+    "prix": 90,
+    "image": "/images/acqua_di_gio.jpg",
+    "description": "Un parfum aquatique et rafraîchissant, évoquant la liberté et la fraîcheur d'une brise marine."
+  },
+  {
+    "id": 6,
+    "nom": "La Nuit Trésor",
+    "marque": "Lancôme",
+    "type": "Hiver",
+    "prix": 110,
+    "image": "/images/la_nuit_tresor.jpg",
+    "description": "Un parfum oriental et gourmand, avec des notes de vanille et de rose noire, pour une soirée envoûtante."
+  },
+  {
+    "id": 7,
+    "nom": "Miss Dior",
+    "marque": "Dior",
+    "type": "Printemps",
+    "prix": 95,
+    "image": "/images/miss_dior.jpg",
+    "description": "Un parfum floral et lumineux, symbolisant la féminité moderne avec des notes de rose et de mandarine."
+  },
+  {
+    "id": 8,
+    "nom": "J’adore",
+    "marque": "Dior",
+    "classique": true,
+    "type": "Toute l'année",
+    "prix": 115,
+    "image": "/images/jadore.jpg",
+    "description": "Un parfum floral et raffiné, avec des notes de jasmin, rose, et ylang-ylang, pour une élégance intemporelle."
+  },
+  {
+    "id": 9,
+    "nom": "Chanel N°5",
+    "marque": "Chanel",
+    "type": "Toute l'année",
+    "classique": true,
+    "prix": 150,
+    "image": "/images/chanel_no_5.jpg",
+    "description": "Un parfum iconique et sophistiqué, alliant des notes florales et aldehydées, emblématique de l'élégance."
+  },
+  {
+    "id": 10,
+    "nom": "Flowerbomb",
+    "marque": "Viktor & Rolf",
+    "type": "Hiver",
+    "prix": 130,
+    "image": "/images/flowerbomb.jpg",
+    "description": "Un parfum explosif et floral, riche en notes de jasmin, orchidée et patchouli, créant une explosion sensorielle."
+  },
+  {
+    "id": 11,
+    "nom": "Black Opium",
+    "marque": "Yves Saint Laurent",
+    "type": "Hiver",
+    "prix": 120,
+    "image": "/images/black_opium.jpg",
+    "description": "Un parfum audacieux et envoûtant, avec des notes de café, vanille et fleur d'oranger."
+  },
+  {
+    "id": 12,
+    "nom": "Tom Ford Noir",
+    "marque": "Tom Ford",
+    "type": "Hiver",
+    "prix": 150,
+    "image": "/images/tom_ford_noir.jpg",
+    "description": "Un parfum oriental et épicé, avec des notes de bergamote, poivre noir et bois de cèdre."
+  },
+  {
+    "id": 13,
+    "nom": "Viktor & Rolf Spicebomb",
+    "marque": "Viktor & Rolf",
+    "type": "Automne",
+    "prix": 100,
+    "image": "/images/spicebomb.jpg",
+    "description": "Un parfum épicé et audacieux, avec des notes de piment, safran et tabac."
+  },
+  {
+    "id": 14,
+    "nom": "Paco Rabanne 1 Million",
+    "marque": "Paco Rabanne",
+    "type": "Toute l'année",
+    "classique": true,
+    "prix": 95,
+    "image": "/images/1_million.jpg",
+    "description": "Un parfum chaud et épicé, avec des notes de cannelle, cuir et rose, pour l'homme charismatique."
+  },
+  {
+    "id": 15,
+    "nom": "Guilty Pour Homme",
+    "marque": "Gucci",
+    "type": "Automne",
+    "prix": 85,
+    "image": "/images/guilty_pour_homme.jpg",
+    "description": "Un parfum oriental et aromatique, avec des notes de lavande, citron et patchouli."
+  },
+  {
+    "id": 16,
+    "nom": "Oud Wood",
+    "marque": "Tom Ford",
+    "type": "Hiver",
+    "prix": 200,
+    "image": "/images/oud_wood.jpg",
+    "description": "Un parfum boisé et fumé, avec des notes d'oud, bois de santal et vanille."
+  },
+  {
+    "id": 17,
+    "nom": "Coco Mademoiselle",
+    "marque": "Chanel",
+    "type": "Toute l'année",
+    "classique": true,
+    "prix": 125,
+    "image": "/images/coco_mademoiselle.jpg",
+    "description": "Un parfum frais et floral, avec des notes de rose, orange et patchouli."
+  },
+  {
+    "id": 18,
+    "nom": "L’Homme de Yves Saint Laurent",
+    "marque": "Yves Saint Laurent",
+    "type": "Printemps",
+    "prix": 110,
+    "image": "/images/homme_ysl.jpg",
+    "description": "Un parfum boisé et épicé, avec des notes de gingembre, cèdre et bois de gaïac."
+  },
+  {
+    "id": 19,
+    "nom": "Light Blue",
+    "marque": "Dolce & Gabbana",
+    "type": "Été",
+    "prix": 85,
+    "image": "/images/light_blue.jpg",
+    "description": "Un parfum fruité et floral, avec des notes de citron, pomme verte et cèdre, évoquant la mer Méditerranée."
+  },
+  {
+    "id": 20,
+    "nom": "Eros",
+    "marque": "Versace",
+    "type": "Toute l'année",
+    "prix": 95,
+    "image": "/images/eros.jpg",
+    "description": "Un parfum frais et sensuel, avec des notes de menthe, vanille et bois de cèdre."
+  },
+  {
+    "id": 21,
+    "nom": "L'Homme Prada",
+    "marque": "Prada",
+    "type": "Automne",
+    "prix": 120,
+    "image": "/images/homme_prada.jpg",
+    "description": "Un parfum moderne et raffiné, avec des notes de gingembre, cuir et ambre."
+  },
+  {
+    "id": 22,
+    "nom": "Fahrenheit",
+    "marque": "Dior",
+    "type": "Automne",
+    "prix": 95,
+    "image": "/images/fahrenheit.jpg",
+    "description": "Un parfum chaud et épicé, avec des notes de cuir, mandarine et bois de cèdre."
+  },
+  {
+    "id": 23,
+    "nom": "L’Interdit",
+    "marque": "Givenchy",
+    "type": "Hiver",
+    "prix": 110,
+    "image": "/images/l_interdit.jpg",
+    "description": "Un parfum oriental et floral, avec des notes de jasmin, tubéreuse et bois de santal."
+  },
+  {
+    "id": 24,
+    "nom": "Giorgio Armani Code",
+    "marque": "Giorgio Armani",
+    "type": "Hiver",
+    "prix": 100,
+    "image": "/images/gacode.jpg",
+    "description": "Un parfum oriental et épicé, avec des notes de bergamote, tonka et bois de gaïac."
+  },
+  {
+    "id": 25,
+    "nom": "Yves Saint Laurent L’Homme Intense",
+    "marque": "Yves Saint Laurent",
+    "type": "Hiver",
+    "prix": 140,
+    "image": "/images/ysl_hommei.jpg",
+    "description": "Un parfum sensuel et puissant, avec des notes de cuir, bois de cèdre et ambre."
+  },
+  {
+    "id": 26,
+    "nom": "Tobacco Vanille",
+    "marque": "Tom Ford",
+    "type": "Hiver",
+    "prix": 200,
+    "image": "/images/tobacco_vanille.jpg",
+    "description": "Un parfum riche et gourmand, avec des notes de tabac, vanille et épices chaudes."
+  },
+  {
+    "id": 27,
+    "nom": "Eros Flame",
+    "marque": "Versace",
+    "type": "Hiver",
+    "prix": 130,
+    "image": "/images/eros_flame.jpg",
+    "description": "Un parfum audacieux et passionné, avec des notes d'orange, piment et bois de cèdre."
+  },
+  {
+    "id": 28,
+    "nom": "Tom Ford Black Orchid",
+    "marque": "Tom Ford",
+    "type": "Hiver",
+    "prix": 150,
+    "image": "/images/tom_ford_black_orchid.jpg",
+    "description": "Un parfum mystérieux et riche, avec des notes d'orchidée, chocolat noir et bois de santal."
+  },
+  {
+    "id": 29,
+    "nom": "Aventus",
+    "marque": "Creed",
+    "type": "Toute l'année",
+    "prix": 350,
+    "image": "/images/aventus.jpg",
+    "description": "Un parfum frais et fruité, avec des notes de bergamote, ananas et musc."
+  },
+  {
+    "id": 30,
+    "nom": "Fleur de Parfum",
+    "marque": "Chloé",
+    "type": "Printemps",
+    "prix": 95,
+    "image": "/images/fleur_de_parfum.jpg",
+    "description": "Un parfum doux et floral, avec des notes de pivoine, rose et magnolia."
+  },
+  {
+    "id": 31,
+    "nom": "L'Extase",
+    "marque": "Nina Ricci",
+    "type": "Hiver",
+    "prix": 105,
+    "image": "/images/l_extase.jpg",
+    "description": "Un parfum floral oriental, avec des notes de jasmin, rose et musc blanc."
+  },
+  {
+    "id": 32,
+    "nom": "Paco Rabanne Invictus",
+    "marque": "Paco Rabanne",
+    "type": "Printemps",
+    "prix": 90,
+    "image": "/images/invictus.jpg",
+    "description": "Un parfum énergique et frais, avec des notes de pamplemousse, laurier et bois de gaïac."
+  },
+  {
+    "id": 33,
+    "nom": "Chanel Allure Homme",
+    "marque": "Chanel",
+    "type": "Automne",
+    "prix": 120,
+    "image": "/images/allure_homme.jpg",
+    "description": "Un parfum élégant et épicé, avec des notes de poivre, gingembre et bois de santal."
+  },
+  {
+    "id": 34,
+    "nom": "Tom Ford Oud Fleur",
+    "marque": "Tom Ford",
+    "type": "Hiver",
+    "prix": 210,
+    "image": "/images/oud_fleur.jpg",
+    "description": "Un parfum riche et floral, avec des notes d'oud, rose et bois de cèdre."
+  },
+  {
+    "id": 35,
+    "nom": "Chanel Egoïste",
+    "marque": "Chanel",
+    "type": "Automne",
+    "prix": 150,
+    "image": "/images/egoiste.jpg",
+    "description": "Un parfum épicé et boisé, avec des notes de rose, bois de santal et épices."
+  },
+  {
+    "id": 36,
+    "nom": "Narciso Rodriguez For Him",
+    "marque": "Narciso Rodriguez",
+    "type": "Toute l'année",
+    "prix": 95,
+    "image": "/images/narciso_for_him.jpg",
+    "description": "Un parfum musqué et boisé, avec des notes de musc, bois de cèdre et vetiver."
+  },
+  {
+    "id": 37,
+    "nom": "Bvlgari Man in Black",
+    "marque": "Bvlgari",
+    "type": "Hiver",
+    "prix": 120,
+    "image": "/images/bvlgari_man_in_black.jpg",
+    "description": "Un parfum oriental et épicé, avec des notes de rhum, cuir et vanille."
+  },
+  {
+    "id": 38,
+    "nom": "La Nuit de L’Homme",
+    "marque": "Yves Saint Laurent",
+    "type": "Hiver",
+    "prix": 130,
+    "image": "/images/la_nuit_de_l_homme.jpg",
+    "description": "Un parfum mystérieux et sensuel, avec des notes de cardamome, lavande et bois de cèdre."
+  },
+  {
+    "id": 39,
+    "nom": "Chanel Chance",
+    "marque": "Chanel",
+    "type": "Printemps",
+    "prix": 125,
+    "image": "/images/chanel_chance.jpg",
+    "description": "Un parfum frais et floral, avec des notes de jasmin, iris et patchouli."
+  },
+  {
+    "id": 40,
+    "nom": "Viktor & Rolf Bonbon",
+    "marque": "Viktor & Rolf",
+    "type": "Hiver",
+    "prix": 115,
+    "image": "/images/bonbon.jpg",
+    "description": "Un parfum gourmand et sucré, avec des notes de caramel, orange et bois de santal."
+  },
+  {
+    "id": 41,
+    "nom": "Jean Paul Gaultier Le Male",
+    "marque": "Jean Paul Gaultier",
+    "type": "Toute l'année",
+    "prix": 100,
+    "image": "/images/le_male.jpg",
+    "description": "Un parfum doux et épicé, avec des notes de lavande, vanille et musc."
+  },
+  {
+    "id": 42,
+    "nom": "Yves Saint Laurent Black Opium",
+    "marque": "Yves Saint Laurent",
+    "type": "Hiver",
+    "prix": 130,
+    "image": "/images/black_opium_ysl.jpg",
+    "description": "Un parfum séduisant et énergique, avec des notes de café, vanille et fleurs blanches."
+  },
+  {
+    "id": 43,
+    "nom": "Baccarat Rouge 540",
+    "marque": "Maison Francis Kurkdjian",
+    "type": "Toute l'année",
+    "prix": 300,
+    "image": "/images/baccarat_rouge_540.jpg",
+    "description": "Un parfum sophistiqué et luxueux, avec des notes de safran, bois de cèdre et ambre gris."
+  },
+  {
+    "id": 44,
+    "nom": "Jean Paul Gaultier Scandal",
+    "marque": "Jean Paul Gaultier",
+    "type": "Hiver",
+    "classique": true,
+    "prix": 95,
+    "image": "/images/scandal.jpg",
+    "description": "Un parfum floral et sucré, avec des notes de miel, gardénia et caramel."
+  },
+  {
+    "id": 45,
+    "nom": "Bvlgari Omnia Crystalline",
+    "marque": "Bvlgari",
+    "type": "Printemps",
+    "classique": true,
+    "prix": 90,
+    "image": "/images/omnia_crystalline.jpg",
+    "description": "Un parfum frais et floral, avec des notes de lotus, nashi et bois de balsa."
+  },
+  {
+    "id": 46,
+    "nom": "Ck One",
+    "marque": "Calvin Klein",
+    "type": "Toute l'année",
+    "prix": 60,
+    "image": "/images/ck_one.jpg",
+    "description": "Un parfum unisexe et frais, avec des notes d'agrumes, jasmin et musc."
+  },
+  {
+    "id": 47,
+    "nom": "Angel",
+    "marque": "Thierry Mugler",
+    "type": "Hiver",
+    "prix": 120,
+    "image": "/images/angel.jpg",
+    "description": "Un parfum gourmand et sucré, avec des notes de chocolat, vanille et caramel."
+  },
+  {
+    "id": 48,
+    "nom": "The One for Men",
+    "marque": "Dolce & Gabbana",
+    "type": "Automne",
+    "prix": 95,
+    "image": "/images/the_one_for_men.jpg",
+    "description": "Un parfum épicé et boisé, avec des notes de gingembre, tabac et cèdre."
+  },
+  {
+    "id": 49,
+    "nom": "Pure Poison",
+    "marque": "Dior",
+    "type": "Hiver",
+    "prix": 100,
+    "image": "/images/pure_poison.jpg",
+    "description": "Un parfum floral et mystérieux, avec des notes de jasmin, orange amère et bois de santal."
+  },
+  {
+    "id": 50,
+    "nom": "Alien",
+    "marque": "Thierry Mugler",
+    "type": "Hiver",
+    "prix": 120,
+    "image": "/images/alien.jpg",
+    "description": "Un parfum mystérieux et envoûtant, avec des notes de jasmin sambac, bois de cashmeran et ambre."
+  }
+]
