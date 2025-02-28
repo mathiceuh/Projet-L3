@@ -12,94 +12,81 @@ app.use(express.urlencoded({ extended: false }));
 // Middleware pour servir les fichiers statiques (HTML, CSS, images)
 app.use(express.static(path.join(__dirname, 'public')));
 
-// Route pour l'accueil (index.html)
+// =================== 🌍 ROUTES FRONT-END ===================
+
+// 📌 Page d'accueil
 app.get('/', (req, res) => {
-  res.sendFile(path.join(__dirname, 'public', 'index.html'));
+  res.sendFile(path.join(__dirname, 'index.html'));
 });
 
-// Route pour afficher la boutique (boutique.html)
+// 📌 Page boutique
 app.get('/boutique', (req, res) => {
   res.sendFile(path.join(__dirname, 'public', 'boutique.html'));
 });
 
-// Route API pour récupérer tous les parfums
+// 📌 Page panier
+app.get('/panier', (req, res) => {
+  res.sendFile(path.join(__dirname, 'public', 'panier.html'));
+});
+
+// =================== 🛍️ ROUTES API ===================
+
+// 📌 API pour récupérer tous les parfums (depuis JSON)
 app.get('/api/parfums', (req, res) => {
   const parfumsPath = path.join(__dirname, 'data', 'parfums.json');
   fs.readFile(parfumsPath, 'utf8', (err, data) => {
     if (err) {
-      console.error('Erreur lors de la lecture du fichier JSON:', err);
-      return res.status(500).json({ error: 'Impossible de lire les données des parfums.' });
+      console.error('Erreur de lecture JSON:', err);
+      return res.status(500).json({ error: 'Impossible de lire les données.' });
     }
     try {
       const parfums = JSON.parse(data);
       res.json(parfums);
     } catch (parseError) {
       console.error('Erreur de parsing JSON:', parseError);
-      res.status(500).json({ error: 'Les données des parfums sont corrompues.' });
+      res.status(500).json({ error: 'Données corrompues.' });
     }
   });
 });
 
-// Route pour récupérer un parfum par son ID
+// 📌 API pour récupérer un parfum spécifique par ID
 app.get('/api/parfums/:id', (req, res) => {
-  const id = parseInt(req.params.id, 10); // Récupérer l'ID depuis l'URL
+  const id = parseInt(req.params.id, 10);
   const parfumsPath = path.join(__dirname, 'data', 'parfums.json');
 
   fs.readFile(parfumsPath, 'utf8', (err, data) => {
     if (err) {
-      console.error('Erreur lors de la lecture du fichier JSON:', err);
-      return res.status(500).json({ error: 'Impossible de lire les données des parfums.' });
+      console.error('Erreur de lecture JSON:', err);
+      return res.status(500).json({ error: 'Impossible de lire les données.' });
     }
     try {
       const parfums = JSON.parse(data);
-      const parfum = parfums.find(p => p.id === id); // Trouver le parfum correspondant
-
-      if (parfum) {
-        res.json(parfum); // Retourner le parfum trouvé
-      } else {
-        res.status(404).json({ error: "Parfum non trouvé" }); // Erreur si non trouvé
-      }
+      const parfum = parfums.find(p => p.id === id);
+      parfum ? res.json(parfum) : res.status(404).json({ error: "Parfum non trouvé" });
     } catch (parseError) {
       console.error('Erreur de parsing JSON:', parseError);
-      res.status(500).json({ error: 'Les données des parfums sont corrompues.' });
+      res.status(500).json({ error: 'Données corrompues.' });
     }
   });
 });
 
-// Gestion des erreurs - 404
+// =================== ⚠️ GESTION DES ERREURS ===================
+
+// 📌 Gestion des erreurs 404
 app.use((req, res, next) => {
-  const error = new Error('Page non trouvée');
-  error.status = 404;
-  next(error);
+  res.status(404).json({ error: 'Page non trouvée' });
 });
 
-// Middleware de gestion des erreurs
+// 📌 Middleware de gestion des erreurs globales
 app.use((err, req, res, next) => {
-  res.status(err.status || 500);
-  res.json({ message: err.message, error: err });
+  console.error("Erreur serveur:", err);
+  res.status(err.status || 500).json({ error: err.message || "Erreur interne du serveur" });
 });
 
-// Démarrer le serveur
+// =================== 🚀 DÉMARRAGE DU SERVEUR ===================
 app.listen(port, () => {
-  console.log(`Serveur en cours d'exécution sur http://localhost:${port}`);
+  console.log(`✅ Serveur en ligne sur http://localhost:${port}`);
 });
 
 module.exports = app;
 
-// server.js
-app.get('/boutique', async (req, res) => {
-  const type = req.query.type; // Get the type from query parameters
-  try {
-    await client.connect();
-    const database = client.db('eclat_olfactif');
-    const perfumes = database.collection('perfumes');
-    const query = type ? { type } : {}; // Filter by type if provided
-    const allPerfumes = await perfumes.find(query).toArray();
-    res.render('boutique', { perfumes: allPerfumes });
-  } catch (error) {
-    console.error(error);
-    res.status(500).send('Error fetching perfumes');
-  } finally {
-    await client.close();
-  }
-});
