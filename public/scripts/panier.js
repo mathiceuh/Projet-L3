@@ -48,3 +48,15 @@ function supprimerDuPanier(parfumId) {
 
     afficherPanier();
 }
+
+
+    const validerBtn = document.getElementById("valider-commande");
+    const notif = document.getElementById("notification");
+
+    if (validerBtn) {
+    validerBtn.addEventListener("click", () => {
+        notif.style.display = "block";
+        setTimeout(() => notif.style.display = "none", 3000);
+    });
+}
+

@@ -37,9 +37,12 @@
   <h2>Nos parfums disponibles</h2>
 
   <!-- Filtre déroulant -->
-  <div class="filter-container">
-    <button id="filter-btn">Filtrer les parfums</button>
-    <div id="filter-menu" class="hidden">
+  <!-- ✅ Bouton Filtrer fixé sous la navbar -->
+  <button id="filter-btn">Filtrer les parfums</button>
+
+  <!-- ✅ Menu filtre séparé à gauche -->
+  <div class="filter-container" id="filter-container">
+    <div id="filter-menu">
       <label><input type="checkbox" class="filter-checkbox" value="Été"> Été</label>
       <label><input type="checkbox" class="filter-checkbox" value="Hiver"> Hiver</label>
       <label><input type="checkbox" class="filter-checkbox" value="Automne"> Automne</label>
@@ -48,6 +51,7 @@
       <button id="apply-filters">Appliquer</button>
     </div>
   </div>
+
 
   <!-- Conteneur des parfums -->
   <div class="parfums-container" id="parfums-container">
