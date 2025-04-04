@@ -1,14 +1,14 @@
 document.addEventListener("DOMContentLoaded", () => {
     afficherPanier(); // Charger les articles du panier
 
-    // ✅ Bouton pour vider le panier
+    //  Bouton pour vider le panier
     document.getElementById("vider-panier").addEventListener("click", () => {
         localStorage.removeItem("panier");
         afficherPanier();
     });
 });
 
-// ✅ Fonction pour afficher le panier
+//  Fonction pour afficher le panier
 function afficherPanier() {
     let panier = JSON.parse(localStorage.getItem("panier")) || [];
     let panierContainer = document.getElementById("panier-container");
@@ -31,7 +31,7 @@ function afficherPanier() {
         panierContainer.appendChild(item);
     });
 
-    // ✅ Ajouter un event listener à chaque bouton "Supprimer"
+    // Ajouter un event listener à chaque bouton "Supprimer"
     document.querySelectorAll(".remove-item").forEach(button => {
         button.addEventListener("click", (event) => {
             let parfumId = event.target.getAttribute("data-id");

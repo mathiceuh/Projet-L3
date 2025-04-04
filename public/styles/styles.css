@@ -1,11 +1,14 @@
-@import url('https://fonts.googleapis.com/css2?family=Pacifico&display=swap'); /* Reset default margins and padding */
+/* Importer la police Google Fonts "Pacifico" */
+@import url('https://fonts.googleapis.com/css2?family=Pacifico&display=swap');
+
+/* Réinitialiser les marges et paddings par défaut pour tous les éléments */
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
 
-/* Import custom font */
+/* Importer une police personnalisée stockée localement */
 @font-face {
     font-family: 'Playwrite IN';
     src: url('fonts/Playwrite_IN/PlaywriteIN-VariableFont_wght.ttf') format('truetype');
@@ -13,12 +16,12 @@
     font-style: normal;
 }
 
-/* General body style */
+/* Style général du corps de la page */
 body {
     background-color: #fff;
 }
 
-/* Promo banner */
+/* Bannière promotionnelle */
 .promo-banner {
     background-color: #ff6b6b;
     color: white;
@@ -35,7 +38,7 @@ body {
     font-family: 'Playwrite IN', sans-serif;
 }
 
-/* Header style */
+/* Style de l'en-tête */
 header {
     width: 100%;
     height: 400px;
@@ -49,7 +52,7 @@ header .logo img {
     display: block;
 }
 
-/* Navigation bar */
+/* Barre de navigation */
 nav {
     background-color: #FEC9CE;
     width: 100%;
@@ -84,7 +87,7 @@ nav ul li a:hover {
     color: white;
 }
 
-/* Slider */
+/* Section du carrousel d’images */
 .slider {
     position: relative;
     width: 80%;
@@ -94,6 +97,7 @@ nav ul li a:hover {
     background-color: #fff;
 }
 
+/* Conteneur des slides */
 .slides {
     display: flex;
     width: 200%;
@@ -101,6 +105,7 @@ nav ul li a:hover {
     transition: transform 1s ease;
 }
 
+/* Une seule slide */
 .slide {
     width: 50%;
     height: 350px;
@@ -112,7 +117,7 @@ nav ul li a:hover {
     object-fit: cover;
 }
 
-/* Slider animation */
+/* Animation automatique du carrousel */
 @keyframes slide {
     0%, 25%, 100% {
         transform: translateX(0);
@@ -122,7 +127,7 @@ nav ul li a:hover {
     }
 }
 
-/* Slider indicators */
+/* Indicateurs de navigation du slider */
 .indicators {
     position: absolute;
     bottom: 10px;
@@ -153,9 +158,8 @@ nav ul li a:hover {
     background-color: #ddd;
 }
 
-/* Featured products section */
+/* Section des produits mis en avant */
 .featured-products {
-
     padding: 40px;
     background-color: white;
     text-align: center;
@@ -169,6 +173,7 @@ nav ul li a:hover {
     margin-bottom: 20px;
 }
 
+/* Grille des produits vedettes */
 .products {
     display: flex;
     justify-content: space-around;
@@ -190,7 +195,7 @@ nav ul li a:hover {
     font-size: 16px;
 }
 
-/* Partners section */
+/* Section des partenaires */
 .partners {
     background-color: white;
     padding: 40px;
@@ -213,7 +218,7 @@ nav ul li a:hover {
     height: auto;
 }
 
-/* Classics section */
+/* Section des parfums classiques */
 .classiques-container {
     display: flex;
     flex-wrap: wrap;
@@ -224,7 +229,7 @@ nav ul li a:hover {
     max-width: 1000px;
 }
 
-/* Perfume card */
+/* Carte d’un parfum */
 .parfum-card {
     background-color: #fff;
     border: 1px solid #ddd;
@@ -261,7 +266,7 @@ nav ul li a:hover {
     margin: 5px 0;
 }
 
-/* Footer */
+/* Pied de page */
 footer {
     background-color: #333;
     color: #fff;
@@ -272,7 +277,7 @@ footer {
     bottom: 0;
 }
 
-/* Responsive improvements */
+/* Améliorations pour les écrans plus petits */
 @media (max-width: 768px) {
     nav ul {
         flex-direction: column;
@@ -288,6 +293,7 @@ footer {
     }
 }
 
+/* Conteneur horizontal pour parfums scrollables */
 .parfum-container {
     display: flex;
     gap: 20px;
@@ -298,6 +304,7 @@ footer {
     max-width: 100%;
 }
 
+/* Redéfinition des cartes parfum dans ce contexte */
 .parfum-card {
     width: 164px;
     background-color: #fff;
@@ -328,6 +335,7 @@ footer {
     font-size: 14px;
 }
 
+/* Détails d’un parfum individuel */
 .parfum-details-container {
     width: 80%;
     max-width: 800px;
@@ -353,6 +361,7 @@ footer {
     margin: 10px 0;
 }
 
+/* Réorganisation verticale des cartes classiques */
 section.classiques-container {
     display: flex;
     justify-content: center;
@@ -370,7 +379,7 @@ section.classiques-container {
 
 .avis-clients-section h2 {
     font-size: 2em;
-    font-family: 'Playfair Display', serif; /* Si tu veux une police élégante */
+    font-family: 'Playfair Display', serif;
     margin-bottom: 20px;
     color: #333;
 }
@@ -382,6 +391,7 @@ section.classiques-container {
     flex-wrap: wrap;
 }
 
+/* Carte pour un avis client */
 .avis {
     background-color: #ffffff;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
@@ -412,10 +422,8 @@ section.classiques-container {
     font-size: 1em;
     text-align: right;
 }
-/* Import custom fonts */
 
-/* Apply the Pacifico font to the section title */
+/* Application de la police Pacifico aux titres de section */
 .section-title {
-    font-family: 'Pacifico', 'Playwrite IN', serif
-!important;
+    font-family: 'Pacifico', 'Playwrite IN', serif !important;
 }

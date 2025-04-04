@@ -9,38 +9,36 @@
 </head>
 <body>
 
-<!-- Promo banner -->
+<!-- Bannière promotionnelle -->
 <div class="promo-banner">
   Profitez de nos promotions exclusives ! <a href="/contact">Contactez-nous</a>
 </div>
 
-<!-- Header -->
+<!-- En-tête avec le logo -->
 <header>
   <div class="logo">
     <img src="/images/logo.jpg" alt="Logo Éclat Olfactif">
   </div>
 </header>
 
-<!-- Navbar -->
+<!-- Barre de navigation principale -->
 <nav>
   <ul>
     <li><a href="/">Accueil</a></li>
     <li><a href="/boutique" class="active">Nos parfums</a></li>
     <li><a href="/contact">Contact</a></li>
     <li><a href="/panier">Panier</a></li>
-
   </ul>
 </nav>
 
-<!-- Main content -->
+<!-- Contenu principal -->
 <main>
   <h2>Nos parfums disponibles</h2>
 
-  <!-- Filtre déroulant -->
-  <!-- ✅ Bouton Filtrer fixé sous la navbar -->
+  <!-- Bouton d’ouverture du menu de filtres -->
   <button id="filter-btn">Filtrer les parfums</button>
 
-  <!-- ✅ Menu filtre séparé à gauche -->
+  <!-- Menu latéral contenant les filtres -->
   <div class="filter-container" id="filter-container">
     <div id="filter-menu">
       <label><input type="checkbox" class="filter-checkbox" value="Été"> Été</label>
@@ -52,19 +50,18 @@
     </div>
   </div>
 
-
-  <!-- Conteneur des parfums -->
+  <!-- Conteneur pour afficher les cartes de parfums (rempli dynamiquement en JavaScript) -->
   <div class="parfums-container" id="parfums-container">
-    <!-- Parfum Cards seront ajoutées ici par JS -->
+    <!-- Les cartes de parfums seront insérées ici par le script JS -->
   </div>
 </main>
 
-<!-- Footer -->
+<!-- Pied de page -->
 <footer>
   <p>&copy; 2025 Éclat Olfactif</p>
 </footer>
 
-<!-- Scripts -->
+<!-- Script JavaScript de la page boutique -->
 <script src="scripts/boutique.js"></script>
 
 </body>

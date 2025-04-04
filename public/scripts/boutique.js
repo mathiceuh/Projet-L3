@@ -1,49 +1,49 @@
 document.addEventListener("DOMContentLoaded", () => {
     console.log("✅ Script chargé !");
 
-    // Sélectionner les éléments HTML
+    // Sélection des éléments HTML nécessaires
     const filterBtn = document.getElementById("filter-btn");
     const filterContainer = document.querySelector(".filter-container");
     const applyFiltersBtn = document.getElementById("apply-filters");
     const parfumsContainer = document.getElementById("parfums-container");
 
-    let parfumsData = []; // Stocker les parfums récupérés
+    let parfumsData = []; // Variable pour stocker les données des parfums récupérés depuis l'API
 
-    // ✅ Ouvrir/Fermer le menu des filtres avec animation
+    // Gestion de l'ouverture et fermeture du menu de filtres avec effet visuel
     if (filterBtn && filterContainer) {
         filterBtn.addEventListener("click", () => {
             console.log("📌 Bouton Filtrer cliqué !");
-            filterContainer.classList.toggle("active"); // Ajoute/enlève la classe active
+            filterContainer.classList.toggle("active"); // Active ou désactive l'affichage du menu de filtres
 
-            // Décaler les parfums quand le menu est ouvert
+            // Déplacement du conteneur des parfums lorsque le menu est actif
             if (filterContainer.classList.contains("active")) {
-                parfumsContainer.style.marginLeft = "270px"; // Décale les parfums
+                parfumsContainer.style.marginLeft = "270px";
             } else {
-                parfumsContainer.style.marginLeft = "0"; // Remet en place si fermé
+                parfumsContainer.style.marginLeft = "0";
             }
         });
     }
 
-    // ✅ Charger tous les parfums depuis l'API
+    // Fonction pour récupérer tous les parfums depuis l'API
     function fetchParfums() {
         fetch("/api/parfums")
             .then(response => {
-                if (!response.ok) throw new Error("⚠️ Erreur lors du chargement des parfums.");
+                if (!response.ok) throw new Error("Erreur lors du chargement des parfums.");
                 return response.json();
             })
             .then(data => {
-                parfumsData = data;
-                afficherParfums(parfumsData);
+                parfumsData = data; // Stockage des données dans la variable globale
+                afficherParfums(parfumsData); // Affichage initial
             })
             .catch(err => {
                 console.error(err);
-                parfumsContainer.innerHTML = "<p>⚠️ Impossible de charger les parfums.</p>";
+                parfumsContainer.innerHTML = "<p>Impossible de charger les parfums.</p>"; // Affiche un message d'erreur
             });
     }
 
-    // ✅ Fonction pour afficher les parfums
+    // Fonction pour afficher dynamiquement les parfums dans le conteneur
     function afficherParfums(parfums) {
-        parfumsContainer.innerHTML = ""; // Effacer l'affichage actuel
+        parfumsContainer.innerHTML = ""; // Nettoyer le contenu actuel
 
         if (parfums.length === 0) {
             parfumsContainer.innerHTML = "<p>Aucun parfum trouvé.</p>";
@@ -65,7 +65,7 @@ document.addEventListener("DOMContentLoaded", () => {
             parfumsContainer.appendChild(card);
         });
 
-        // ✅ Ajouter un event listener à chaque bouton "Ajouter au panier"
+        // Ajouter un écouteur d'événement à chaque bouton "Ajouter au panier"
         document.querySelectorAll(".add-to-cart").forEach(button => {
             button.addEventListener("click", (event) => {
                 const parfumId = event.target.getAttribute("data-id");
@@ -78,40 +78,41 @@ document.addEventListener("DOMContentLoaded", () => {
         });
     }
 
-    // ✅ Fonction pour ajouter un parfum au panier
+    // Fonction pour ajouter un parfum au panier local (stocké en localStorage)
     function ajouterAuPanier(parfum) {
-        let panier = JSON.parse(localStorage.getItem("panier")) || []; // Récupérer le panier actuel
+        let panier = JSON.parse(localStorage.getItem("panier")) || []; // Récupération du panier existant ou création d'un nouveau
 
-        // Vérifier si le parfum est déjà dans le panier
+        // Vérifie si le parfum est déjà présent dans le panier
         let parfumExistant = panier.find(item => item.id === parfum.id);
         if (parfumExistant) {
-            alert("✅ Ce parfum est déjà dans votre panier !");
+            alert("Ce parfum est déjà dans votre panier !");
             return;
         }
 
-        // Ajouter le parfum au panier
+        // Ajoute le nouveau parfum au panier
         panier.push(parfum);
-        localStorage.setItem("panier", JSON.stringify(panier));
+        localStorage.setItem("panier", JSON.stringify(panier)); // Mise à jour du panier dans le localStorage
 
-        alert(`🛒 ${parfum.nom} a été ajouté au panier !`);
+        alert(`${parfum.nom} a été ajouté au panier !`);
     }
 
-    // ✅ Appliquer les filtres sélectionnés
+    // Appliquer les filtres sélectionnés par l'utilisateur
     if (applyFiltersBtn) {
         applyFiltersBtn.addEventListener("click", () => {
             const checkboxes = document.querySelectorAll(".filter-checkbox:checked");
-            let selectedTypes = Array.from(checkboxes).map(checkbox => checkbox.value);
+            let selectedTypes = Array.from(checkboxes).map(checkbox => checkbox.value); // Liste des types sélectionnés
 
-            console.log("🛠️ Filtres sélectionnés :", selectedTypes);
+            console.log("Filtres sélectionnés :", selectedTypes);
 
+            // Filtrage des parfums selon les types sélectionnés
             let parfumsFiltres = selectedTypes.length > 0
                 ? parfumsData.filter(parfum => selectedTypes.includes(parfum.type))
                 : parfumsData;
 
-            afficherParfums(parfumsFiltres);
+            afficherParfums(parfumsFiltres); // Affiche les parfums filtrés
         });
     }
 
-    // ✅ Chargement des parfums au démarrage
+    // Chargement initial des parfums au démarrage de la page
     fetchParfums();
 });

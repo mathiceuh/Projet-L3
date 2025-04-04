@@ -1,12 +1,11 @@
-
-
-/* Reset default margins and padding */
+/* Réinitialisation des marges et des paddings par défaut */
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
-/* Promo banner */
+
+/* Bannière promotionnelle */
 .promo-banner {
     background-color: #ff6b6b;
     color: white;
@@ -15,7 +14,6 @@
     font-size: 16px;
     position: relative;
     font-family: 'Playwrite IN', serif;
-
 }
 
 .promo-banner a {
@@ -24,12 +22,12 @@
     font-family: 'Playwrite IN', sans-serif;
 }
 
-/* General body style */
+/* Style général du corps de la page */
 body {
     background-color: #fff;
 }
 
-/* Header style */
+/* Style de l'en-tête */
 header {
     width: 100%;
     height: 400px;
@@ -44,7 +42,7 @@ header .logo img {
     display: block;
 }
 
-/* Navigation bar */
+/* Barre de navigation */
 nav {
     background-color: #FEC9CE;
     width: 100%;
@@ -78,17 +76,17 @@ nav ul li a:hover {
     color: white;
 }
 
-/* Section for all perfumes */
+/* Section contenant tous les parfums */
 .parfums-container {
     display: grid;
-    grid-template-columns: repeat(6, 1fr); /* 6 items per row */
-    gap: 20px; /* Space between items */
+    grid-template-columns: repeat(6, 1fr); /* 6 parfums par ligne */
+    gap: 20px; /* Espacement entre les cartes */
     padding: 20px;
-    max-width: 1200px; /* Maximum width of the container */
-    margin: 0 auto; /* Center the container */
+    max-width: 1200px; /* Largeur maximale de la grille */
+    margin: 0 auto; /* Centrage horizontal */
 }
 
-/* Perfume card */
+/* Carte individuelle d’un parfum */
 .parfum-card {
     background-color: #fff;
     border: 1px solid #ddd;
@@ -98,11 +96,11 @@ nav ul li a:hover {
     padding: 15px;
     transition: transform 0.3s ease, box-shadow 0.3s ease;
     overflow: hidden;
-    width: 100%; /* Occupation complète de la cellule de grille */
-    max-width: 220px; /* Limiter la largeur à 220px pour ne pas s'étendre */
+    width: 100%;
+    max-width: 220px; /* Limite la largeur des cartes */
 }
 
-/* Hover effect on perfume card */
+/* Effet au survol d’une carte parfum */
 .parfum-card:hover {
     transform: scale(1.05);
     box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
@@ -149,7 +147,7 @@ nav ul li a:hover {
     font-size: 16px;
 }
 
-/* Footer */
+/* Pied de page */
 footer {
     background-color: #333;
     color: #fff;
@@ -160,29 +158,32 @@ footer {
     bottom: 0;
 }
 
-/* Responsive improvements */
+/* Adaptation aux écrans moyens */
 @media (max-width: 1024px) {
     .parfum-container {
-        grid-template-columns: repeat(5, 1fr); /* 5 parfums par ligne pour des écrans moyens */
+        grid-template-columns: repeat(5, 1fr); /* 5 colonnes sur écrans moyens */
     }
 }
 
+/* Adaptation aux écrans petits */
 @media (max-width: 768px) {
     .parfum-container {
-        grid-template-columns: repeat(4, 1fr); /* 4 parfums par ligne sur petits écrans */
+        grid-template-columns: repeat(4, 1fr); /* 4 colonnes sur petits écrans */
     }
 }
 
+/* Adaptation aux très petits écrans (smartphones) */
 @media (max-width: 480px) {
     .parfum-container {
-        grid-template-columns: repeat(2, 1fr); /* 2 parfums par ligne sur très petits écrans */
+        grid-template-columns: repeat(2, 1fr); /* 2 colonnes sur très petits écrans */
     }
 }
+
 /* === FILTRE LATÉRAL === */
 .filter-container {
     position: absolute;
-    top: 80px; /* sous la navbar */
-    left: -250px; /* caché par défaut */
+    top: 80px; /* position sous la barre de navigation */
+    left: -250px; /* position masquée par défaut */
     width: 250px;
     margin-top: 500px;
     background-color: #fff;
@@ -193,12 +194,12 @@ footer {
     z-index: 1000;
 }
 
-/* Menu visible quand actif */
+/* Menu filtre visible lorsqu'il est actif */
 .filter-container.active {
     left: 0;
 }
 
-/* Bouton d'ouverture du filtre */
+/* Bouton pour ouvrir le menu de filtres */
 #filter-btn {
     position: absolute;
     top: 90px;
@@ -219,13 +220,14 @@ footer {
     transform: scale(1.05);
 }
 
-/* Style des options de filtre */
+/* Style des étiquettes de filtre */
 #filter-menu label {
     display: block;
     margin: 12px 0;
     font-size: 14px;
 }
 
+/* Bouton pour appliquer les filtres */
 #apply-filters {
     margin-top: 15px;
     width: 100%;
@@ -241,7 +243,7 @@ footer {
     background-color: #e35d6a;
 }
 
-/* Décalage des parfums quand filtre actif */
+/* Décale les parfums vers la droite quand le filtre est actif */
 .filter-container.active ~ #parfums-container {
     margin-left: 250px;
 }
@@ -250,9 +252,9 @@ footer {
     transform: scale(1.1);
 }
 
-/* ✅ Style des cases à cocher */
+/* Style des cases à cocher du filtre */
 #filter-menu {
-    display: block; /* Toujours visible */
+    display: block;
     text-align: left;
 }
 
@@ -268,7 +270,7 @@ footer {
     margin-right: 10px;
 }
 
-/* ✅ Bouton "Appliquer" stylisé */
+/* Style du bouton Appliquer dans le menu filtre */
 #apply-filters {
     width: 100%;
     margin-top: 15px;

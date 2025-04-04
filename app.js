@@ -5,88 +5,91 @@ const fs = require('fs');
 const app = express();
 const port = 1112;
 
-// Middleware pour analyser les corps des requêtes en JSON
+// Middleware pour analyser les requêtes contenant des données JSON ou des formulaires
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 
-// Middleware pour servir les fichiers statiques (HTML, CSS, images)
+// Middleware pour servir les fichiers statiques (HTML, CSS, images, JS)
 app.use(express.static(path.join(__dirname, 'public')));
 
-// =================== 🌍 ROUTES FRONT-END ===================
+// =================== ROUTES FRONT-END ===================
 
-// 📌 Page d'accueil
+// Route pour la page d'accueil
 app.get('/', (req, res) => {
   res.sendFile(path.join(__dirname, 'index.html'));
 });
 
-// 📌 Page boutique
+// Route pour la page de la boutique
 app.get('/boutique', (req, res) => {
   res.sendFile(path.join(__dirname, 'public', 'boutique.html'));
 });
 
-// 📌 Page panier
+// Route pour la page du panier
 app.get('/panier', (req, res) => {
   res.sendFile(path.join(__dirname, 'public', 'panier.html'));
 });
 
-// =================== 🛍️ ROUTES API ===================
+// =================== ROUTES API ===================
 
-// 📌 API pour récupérer tous les parfums (depuis JSON)
+// Route pour obtenir la liste de tous les parfums (lecture depuis un fichier JSON)
 app.get('/api/parfums', (req, res) => {
   const parfumsPath = path.join(__dirname, 'data', 'parfums.json');
   fs.readFile(parfumsPath, 'utf8', (err, data) => {
     if (err) {
-      console.error('Erreur de lecture JSON:', err);
+      console.error('Erreur lors de la lecture du fichier JSON :', err);
       return res.status(500).json({ error: 'Impossible de lire les données.' });
     }
     try {
       const parfums = JSON.parse(data);
       res.json(parfums);
     } catch (parseError) {
-      console.error('Erreur de parsing JSON:', parseError);
+      console.error('Erreur lors de l’analyse du JSON :', parseError);
       res.status(500).json({ error: 'Données corrompues.' });
     }
   });
 });
 
-// 📌 API pour récupérer un parfum spécifique par ID
+// Route pour obtenir un parfum spécifique via son identifiant
 app.get('/api/parfums/:id', (req, res) => {
   const id = parseInt(req.params.id, 10);
   const parfumsPath = path.join(__dirname, 'data', 'parfums.json');
 
   fs.readFile(parfumsPath, 'utf8', (err, data) => {
     if (err) {
-      console.error('Erreur de lecture JSON:', err);
+      console.error('Erreur lors de la lecture du fichier JSON :', err);
       return res.status(500).json({ error: 'Impossible de lire les données.' });
     }
     try {
       const parfums = JSON.parse(data);
       const parfum = parfums.find(p => p.id === id);
-      parfum ? res.json(parfum) : res.status(404).json({ error: "Parfum non trouvé" });
+      if (parfum) {
+        res.json(parfum);
+      } else {
+        res.status(404).json({ error: "Parfum non trouvé" });
+      }
     } catch (parseError) {
-      console.error('Erreur de parsing JSON:', parseError);
+      console.error('Erreur lors de l’analyse du JSON :', parseError);
       res.status(500).json({ error: 'Données corrompues.' });
     }
   });
 });
 
-// =================== ⚠️ GESTION DES ERREURS ===================
+// =================== GESTION DES ERREURS ===================
 
-// 📌 Gestion des erreurs 404
+// Middleware pour gérer les routes inexistantes (erreur 404)
 app.use((req, res, next) => {
   res.status(404).json({ error: 'Page non trouvée' });
 });
 
-// 📌 Middleware de gestion des erreurs globales
+// Middleware pour gérer les erreurs serveur de manière centralisée
 app.use((err, req, res, next) => {
-  console.error("Erreur serveur:", err);
+  console.error("Erreur interne du serveur :", err);
   res.status(err.status || 500).json({ error: err.message || "Erreur interne du serveur" });
 });
 
-// =================== 🚀 DÉMARRAGE DU SERVEUR ===================
+// =================== DÉMARRAGE DU SERVEUR ===================
 app.listen(port, () => {
-  console.log(`✅ Serveur en ligne sur http://localhost:${port}`);
+  console.log(`Serveur démarré sur http://localhost:${port}`);
 });
 
 module.exports = app;
-

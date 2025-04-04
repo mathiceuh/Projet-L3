@@ -8,22 +8,29 @@
 </head>
 <body>
 
+<!-- En-tête avec le titre de la page et un lien de retour vers la boutique -->
 <header>
   <h1>🛒 Mon Panier</h1>
   <a href="/boutique.html">← Retour à la boutique</a>
 </header>
 
 <main>
+  <!-- Conteneur du panier (rempli dynamiquement en JavaScript) -->
   <div id="panier-container">
     <p>Votre panier est vide.</p>
   </div>
+
+  <!-- Bouton pour vider complètement le panier -->
   <button id="vider-panier">❌ Vider le panier</button>
 
+  <!-- Bouton pour valider la commande -->
   <button id="valider-commande">Valider la commande</button>
-  <div id="notification">🚧 Cette fonctionnalité sera disponible prochainement !</div>
 
+  <!-- Message de notification temporaire pour fonctionnalité à venir -->
+  <div id="notification">🚧 Cette fonctionnalité sera disponible prochainement !</div>
 </main>
 
+<!-- Lien vers le script JavaScript qui gère le panier -->
 <script src="scripts/panier.js"></script>
 
 </body>
