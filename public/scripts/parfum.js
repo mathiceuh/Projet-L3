@@ -1,38 +1,104 @@
+// ============================================
+// PARFUM.JS — Page détail produit
+// ============================================
 
-// Vérifie si on est sur la page "parfum.html"
-if (window.location.pathname.includes('parfum.html')) {
-    // Récupérer l'ID du parfum depuis l'URL
-    const urlParams = new URLSearchParams(window.location.search);
-    const parfumId = urlParams.get('id');
+document.addEventListener('DOMContentLoaded', () => {
 
-    if (parfumId) {
-        // Charger les détails du parfum via l'API
-        fetch(`/api/parfums/${parfumId}`)
-            .then(response => {
-                if (!response.ok) throw new Error("Parfum non trouvé");
-                return response.json();
-            })
-            .then(parfum => {
-                // Mettre à jour le contenu de la page avec les détails du parfum
-                document.getElementById('parfum-name').textContent = parfum.nom;
+  // --- Nav toggle ---
+  const toggle = document.getElementById('nav-toggle');
+  const navLinks = document.getElementById('nav-links');
+  if (toggle) toggle.addEventListener('click', () => navLinks.classList.toggle('open'));
 
-                const parfumInfo = document.getElementById('parfum-info');
-                parfumInfo.innerHTML = `
-                    <img src="${parfum.image}" alt="${parfum.nom}" class="parfum-details-image">
-                    <p><strong>Marque :</strong> ${parfum.marque}</p>
-                    <p><strong>Type :</strong> ${parfum.type}</p>
-                    <p><strong>Prix :</strong> ${parfum.prix} €</p>
-                    <p><strong>Description :</strong> ${parfum.description}</p>
-                `;
-            })
-            .catch(err => {
-                document.getElementById('parfum-details').innerHTML = `
-                    <p>Erreur : ${err.message}</p>
-                `;
-            });
-    } else {
-        document.getElementById('parfum-details').innerHTML = `
-            <p>Erreur : ID de parfum manquant dans l'URL.</p>
-        `;
-    }
-}
+  // --- Cart counter ---
+  function updateCartCount() {
+    const panier = JSON.parse(localStorage.getItem('panier')) || [];
+    const countEl = document.getElementById('cart-count');
+    if (countEl) countEl.textContent = panier.length;
+  }
+  updateCartCount();
+
+  // --- Toast ---
+  function showToast(message, type = 'success') {
+    const container = document.getElementById('toast-container');
+    if (!container) return;
+    const toast = document.createElement('div');
+    toast.className = `toast ${type}`;
+    toast.textContent = message;
+    container.appendChild(toast);
+    setTimeout(() => toast.remove(), 3000);
+  }
+
+  // --- Load perfume details ---
+  const urlParams = new URLSearchParams(window.location.search);
+  const parfumId = urlParams.get('id');
+  const detailsContainer = document.getElementById('parfum-details');
+
+  if (!parfumId) {
+    detailsContainer.innerHTML = `
+      <div class="detail-error">
+        <p>Aucun parfum sélectionné.</p>
+        <a href="/boutique" class="btn btn-outline">Retour à la boutique</a>
+      </div>
+    `;
+    return;
+  }
+
+  fetch(`/api/parfums/${parfumId}`)
+    .then(response => {
+      if (!response.ok) throw new Error('Parfum non trouvé');
+      return response.json();
+    })
+    .then(parfum => {
+      document.title = `${parfum.nom} — Éclat Olfactif`;
+
+      detailsContainer.innerHTML = `
+        <div class="detail-image-wrapper">
+          <img src="${parfum.image}" alt="${parfum.nom}">
+        </div>
+        <div class="detail-info">
+          <p class="detail-brand">${parfum.marque}</p>
+          <h1 class="detail-name">${parfum.nom}</h1>
+          <span class="detail-type">${parfum.type}</span>
+          <p class="detail-price">${parfum.prix} € <span>TTC</span></p>
+          <p class="detail-description">${parfum.description}</p>
+          <div class="detail-actions">
+            <button class="btn btn-gold" id="add-to-cart-detail">
+              🛒 Ajouter au panier
+            </button>
+            <a href="/boutique" class="btn btn-outline">Continuer mes achats</a>
+          </div>
+        </div>
+      `;
+
+      // Add to cart from detail page
+      const addBtn = document.getElementById('add-to-cart-detail');
+      if (addBtn) {
+        addBtn.addEventListener('click', () => {
+          let panier = JSON.parse(localStorage.getItem('panier')) || [];
+
+          if (panier.find(item => item.id === String(parfum.id))) {
+            showToast('Ce parfum est déjà dans votre panier !', 'error');
+            return;
+          }
+
+          panier.push({
+            id: String(parfum.id),
+            nom: parfum.nom,
+            prix: parfum.prix,
+            image: parfum.image
+          });
+          localStorage.setItem('panier', JSON.stringify(panier));
+          updateCartCount();
+          showToast(`${parfum.nom} ajouté au panier ✓`);
+        });
+      }
+    })
+    .catch(err => {
+      detailsContainer.innerHTML = `
+        <div class="detail-error">
+          <p>${err.message}</p>
+          <a href="/boutique" class="btn btn-outline">Retour à la boutique</a>
+        </div>
+      `;
+    });
+});

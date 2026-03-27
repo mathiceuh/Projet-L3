@@ -1,289 +1,195 @@
-/* Réinitialisation des marges et des paddings par défaut */
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
+/* ============================================
+   BOUTIQUE.CSS — Page boutique
+   ============================================ */
+
+/* ---------- Hero ---------- */
+.boutique-hero {
+  padding: 60px 0 30px;
+  background: var(--color-bg);
 }
 
-/* Bannière promotionnelle */
-.promo-banner {
-    background-color: #ff6b6b;
-    color: white;
-    text-align: center;
-    padding: 10px 0;
-    font-size: 16px;
-    position: relative;
-    font-family: 'Playwrite IN', serif;
+/* ---------- Controls ---------- */
+.boutique-content {
+  padding: 0 0 80px;
 }
 
-.promo-banner a {
-    color: white;
-    text-decoration: underline;
-    font-family: 'Playwrite IN', sans-serif;
+.boutique-controls {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  margin-bottom: 20px;
+  flex-wrap: wrap;
 }
 
-/* Style général du corps de la page */
-body {
-    background-color: #fff;
+.search-bar {
+  flex: 1;
+  min-width: 250px;
+  display: flex;
+  align-items: center;
+  background: var(--color-bg-card);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-xl);
+  padding: 0 20px;
+  transition: border-color var(--transition-base), box-shadow var(--transition-base);
 }
 
-/* Style de l'en-tête */
-header {
-    width: 100%;
-    height: 400px;
-    overflow: hidden;
-    position: relative;
+.search-bar:focus-within {
+  border-color: var(--color-gold);
+  box-shadow: 0 0 0 3px rgba(201,169,110,0.1);
 }
 
-header .logo img {
-    width: 100%;
-    height: 400px;
-    object-fit: cover;
-    display: block;
+.search-icon {
+  font-size: 16px;
+  margin-right: 10px;
+  opacity: 0.5;
 }
 
-/* Barre de navigation */
-nav {
-    background-color: #FEC9CE;
-    width: 100%;
-    position: sticky;
-    top: 0;
-    z-index: 1000;
+.search-bar input {
+  flex: 1;
+  background: transparent;
+  border: none;
+  outline: none;
+  color: var(--color-text);
+  font-family: var(--font-body);
+  font-size: 14px;
+  padding: 12px 0;
 }
 
-nav ul {
-    list-style: none;
-    display: flex;
-    justify-content: center;
+.search-bar input::placeholder {
+  color: var(--color-text-muted);
 }
 
-nav ul li {
-    margin: 0 15px;
+/* ---------- Filter Panel ---------- */
+.filter-panel {
+  background: var(--color-bg-card);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+  padding: 20px 24px;
+  margin-bottom: 24px;
+  display: none;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  flex-wrap: wrap;
+  animation: fade-down 0.3s ease;
 }
 
-nav ul li a {
-    color: black;
-    text-decoration: none;
-    font-size: 18px;
-    padding: 12px 20px;
-    display: inline-block;
-    transition: all 0.3s ease;
+.filter-panel.active {
+  display: flex;
 }
 
-nav ul li a:hover {
-    transform: scale(1.1);
-    background-color: #f5959e;
-    color: white;
+@keyframes fade-down {
+  from { opacity: 0; transform: translateY(-10px); }
+  to { opacity: 1; transform: translateY(0); }
 }
 
-/* Section contenant tous les parfums */
-.parfums-container {
-    display: grid;
-    grid-template-columns: repeat(6, 1fr); /* 6 parfums par ligne */
-    gap: 20px; /* Espacement entre les cartes */
-    padding: 20px;
-    max-width: 1200px; /* Largeur maximale de la grille */
-    margin: 0 auto; /* Centrage horizontal */
+.filter-chips {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
 }
 
-/* Carte individuelle d’un parfum */
-.parfum-card {
-    background-color: #fff;
-    border: 1px solid #ddd;
-    border-radius: 8px;
-    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
-    text-align: center;
-    padding: 15px;
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-    overflow: hidden;
-    width: 100%;
-    max-width: 220px; /* Limite la largeur des cartes */
+.filter-chip {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-xl);
+  padding: 8px 16px;
+  font-size: 13px;
+  color: var(--color-text-muted);
+  cursor: pointer;
+  transition: all var(--transition-base);
+  user-select: none;
 }
 
-/* Effet au survol d’une carte parfum */
-.parfum-card:hover {
-    transform: scale(1.05);
-    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+.filter-chip:hover {
+  border-color: var(--color-gold);
+  color: var(--color-gold);
 }
 
-.parfum-card img {
-    width: 100%;
-    height: 160px;
-    object-fit: cover;
-    border-radius: 5px;
-    margin-bottom: 10px;
+.filter-chip input[type="checkbox"] {
+  display: none;
 }
 
-.parfum-card h3 {
-    font-size: 16px;
-    color: #333;
-    margin: 10px 0 5px;
+.filter-chip:has(input:checked) {
+  background: rgba(201,169,110,0.15);
+  border-color: var(--color-gold);
+  color: var(--color-gold);
 }
 
-.parfum-card p {
-    font-size: 12px;
-    color: #666;
-    margin: 5px 0;
+/* ---------- Product Count ---------- */
+.product-count {
+  font-size: 14px;
+  color: var(--color-text-muted);
+  margin-bottom: 20px;
 }
 
-.products {
-    display: flex;
-    justify-content: space-around;
+/* ---------- Products Grid ---------- */
+.parfums-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(230px, 1fr));
+  gap: 24px;
 }
 
-.product {
-    width: 30%;
-    text-align: center;
+.parfums-grid .parfum-card .card-body {
+  padding: 16px;
 }
 
-.product img {
-    width: 100%;
-    height: auto;
-    border-radius: 10px;
+.parfums-grid .parfum-card .card-footer {
+  padding: 0 16px 16px;
 }
 
-.product p {
-    margin-top: 10px;
-    font-size: 16px;
+/* Add to cart button on card */
+.add-to-cart {
+  width: 100%;
+  padding: 10px;
+  background: transparent;
+  border: 1px solid var(--color-gold);
+  border-radius: var(--radius-sm);
+  color: var(--color-gold);
+  font-size: 13px;
+  font-weight: 600;
+  letter-spacing: 0.3px;
+  transition: all var(--transition-base);
+  text-transform: uppercase;
 }
 
-/* Pied de page */
-footer {
-    background-color: #333;
-    color: #fff;
-    text-align: center;
-    padding: 20px;
-    position: relative;
-    width: 100%;
-    bottom: 0;
+.add-to-cart:hover {
+  background: linear-gradient(135deg, var(--color-gold), var(--color-gold-dark));
+  color: var(--color-bg);
+  transform: translateY(-1px);
 }
 
-/* Adaptation aux écrans moyens */
-@media (max-width: 1024px) {
-    .parfum-container {
-        grid-template-columns: repeat(5, 1fr); /* 5 colonnes sur écrans moyens */
-    }
-}
-
-/* Adaptation aux écrans petits */
+/* ---------- Responsive ---------- */
 @media (max-width: 768px) {
-    .parfum-container {
-        grid-template-columns: repeat(4, 1fr); /* 4 colonnes sur petits écrans */
-    }
+  .boutique-controls {
+    flex-direction: column;
+  }
+
+  .search-bar {
+    width: 100%;
+  }
+
+  .parfums-grid {
+    grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
+    gap: 16px;
+  }
 }
 
-/* Adaptation aux très petits écrans (smartphones) */
 @media (max-width: 480px) {
-    .parfum-container {
-        grid-template-columns: repeat(2, 1fr); /* 2 colonnes sur très petits écrans */
-    }
-}
+  .parfums-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 12px;
+  }
 
-/* === FILTRE LATÉRAL === */
-.filter-container {
-    position: absolute;
-    top: 80px; /* position sous la barre de navigation */
-    left: -250px; /* position masquée par défaut */
-    width: 250px;
-    margin-top: 500px;
-    background-color: #fff;
-    border-right: 1px solid #ddd;
-    box-shadow: 3px 0 8px rgba(0,0,0,0.1);
-    padding: 20px;
-    transition: left 0.3s ease;
-    z-index: 1000;
-}
+  .filter-chips {
+    gap: 6px;
+  }
 
-/* Menu filtre visible lorsqu'il est actif */
-.filter-container.active {
-    left: 0;
-}
-
-/* Bouton pour ouvrir le menu de filtres */
-#filter-btn {
-    position: absolute;
-    top: 90px;
-    left: 10px;
-    margin-top: 450px;
-    background-color: #f5959e;
-    color: white;
-    border: none;
-    padding: 10px 16px;
-    border-radius: 6px;
-    font-size: 14px;
-    cursor: pointer;
-    z-index: 1100;
-    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
-}
-
-#filter-btn:hover {
-    transform: scale(1.05);
-}
-
-/* Style des étiquettes de filtre */
-#filter-menu label {
-    display: block;
-    margin: 12px 0;
-    font-size: 14px;
-}
-
-/* Bouton pour appliquer les filtres */
-#apply-filters {
-    margin-top: 15px;
-    width: 100%;
-    background-color: #f5959e;
-    color: white;
-    border: none;
-    padding: 8px;
-    border-radius: 5px;
-    cursor: pointer;
-}
-
-#apply-filters:hover {
-    background-color: #e35d6a;
-}
-
-/* Décale les parfums vers la droite quand le filtre est actif */
-.filter-container.active ~ #parfums-container {
-    margin-left: 250px;
-}
-
-#filter-btn:hover {
-    transform: scale(1.1);
-}
-
-/* Style des cases à cocher du filtre */
-#filter-menu {
-    display: block;
-    text-align: left;
-}
-
-#filter-menu label {
-    display: flex;
-    align-items: center;
-    margin: 10px 0;
-    cursor: pointer;
-    font-size: 14px;
-}
-
-#filter-menu input[type="checkbox"] {
-    margin-right: 10px;
-}
-
-/* Style du bouton Appliquer dans le menu filtre */
-#apply-filters {
-    width: 100%;
-    margin-top: 15px;
-    background-color: #f5959e;
-    border: none;
-    color: white;
-    padding: 8px;
-    cursor: pointer;
-    border-radius: 5px;
-    font-size: 14px;
-    transition: background 0.2s ease-in-out;
-}
-
-#apply-filters:hover {
-    background-color: #e35d6a;
+  .filter-chip {
+    padding: 6px 12px;
+    font-size: 12px;
+  }
 }

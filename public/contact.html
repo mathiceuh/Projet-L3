@@ -3,24 +3,169 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Éclat Olfactif - Contact</title>
-  <link rel="stylesheet" href="styles.css">
-  <script src="navbar.js" defer></script>
+  <meta name="description" content="Contactez l'équipe Éclat Olfactif. Nous sommes là pour répondre à toutes vos questions.">
+  <title>Contact — Éclat Olfactif</title>
+  <link rel="stylesheet" href="/styles/global.css">
+  <link rel="stylesheet" href="/styles/contact.css">
 </head>
 <body>
 
-<!-- Navbar -->
-<nav>
-  <a href="/" class="nav-link home">Accueil</a>
-  <a href="/parfum" class="nav-link parfum">Nos parfums</a>
-  <a href="/contact" class="nav-link contact">Contact</a>
+<!-- Navigation -->
+<nav class="site-nav" id="site-nav">
+  <div class="nav-inner">
+    <a href="/" class="nav-brand">Éclat Olfactif</a>
+    <div class="nav-links" id="nav-links">
+      <a href="/">Accueil</a>
+      <a href="/boutique">Nos Parfums</a>
+      <a href="/contact" class="active">Contact</a>
+      <a href="/panier" class="nav-cart">
+        🛒 Panier <span class="cart-count" id="cart-count">0</span>
+      </a>
+    </div>
+    <button class="nav-toggle" id="nav-toggle" aria-label="Menu">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
 </nav>
 
-<!-- Contenu principal -->
-<div class="container">
-  <h1>Contactez-nous</h1>
-  <p>Pour toute demande, veuillez remplir le formulaire ci-dessous ou nous envoyer un e-mail à contact@eclatolfactif.com.</p>
-</div>
+<!-- Main Content -->
+<main>
+  <section class="contact-hero">
+    <div class="container">
+      <div class="section-header">
+        <h2>Contactez-nous</h2>
+        <p>Une question ? N'hésitez pas à nous écrire, nous vous répondrons dans les plus brefs délais.</p>
+        <div class="gold-line"></div>
+      </div>
+    </div>
+  </section>
 
+  <section class="contact-content">
+    <div class="container">
+      <div class="contact-grid">
+        <!-- Contact Form -->
+        <div class="contact-form-card">
+          <h3>Envoyez-nous un message</h3>
+          <form id="contact-form" class="contact-form">
+            <div class="form-group">
+              <label for="contact-name">Nom complet</label>
+              <input type="text" id="contact-name" name="name" placeholder="Votre nom" required>
+            </div>
+            <div class="form-group">
+              <label for="contact-email">Adresse e-mail</label>
+              <input type="email" id="contact-email" name="email" placeholder="votre@email.com" required>
+            </div>
+            <div class="form-group">
+              <label for="contact-subject">Sujet</label>
+              <select id="contact-subject" name="subject" required>
+                <option value="" disabled selected>Choisissez un sujet</option>
+                <option value="commande">Question sur une commande</option>
+                <option value="produit">Information produit</option>
+                <option value="retour">Retour / Échange</option>
+                <option value="autre">Autre</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label for="contact-message">Message</label>
+              <textarea id="contact-message" name="message" rows="5" placeholder="Votre message..." required></textarea>
+            </div>
+            <button type="submit" class="btn btn-gold">Envoyer le message</button>
+          </form>
+          <div class="form-success" id="form-success" style="display:none;">
+            <div class="success-icon">✓</div>
+            <h3>Message envoyé !</h3>
+            <p>Merci pour votre message. Nous vous répondrons sous 24 à 48 heures.</p>
+          </div>
+        </div>
+
+        <!-- Contact Info -->
+        <div class="contact-info-card">
+          <h3>Informations</h3>
+          <div class="info-item">
+            <span class="info-icon">📍</span>
+            <div>
+              <strong>Adresse</strong>
+              <p>12 Rue de la Parfumerie, 75008 Paris</p>
+            </div>
+          </div>
+          <div class="info-item">
+            <span class="info-icon">📧</span>
+            <div>
+              <strong>E-mail</strong>
+              <p><a href="mailto:contact@eclatolfactif.com">contact@eclatolfactif.com</a></p>
+            </div>
+          </div>
+          <div class="info-item">
+            <span class="info-icon">📞</span>
+            <div>
+              <strong>Téléphone</strong>
+              <p><a href="tel:+33123456789">+33 1 23 45 67 89</a></p>
+            </div>
+          </div>
+          <div class="info-item">
+            <span class="info-icon">🕐</span>
+            <div>
+              <strong>Horaires</strong>
+              <p>Lun - Ven : 9h - 18h</p>
+              <p>Sam : 10h - 16h</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<!-- Footer -->
+<footer class="site-footer">
+  <div class="footer-inner">
+    <div class="footer-about">
+      <div class="footer-brand">Éclat Olfactif</div>
+      <p class="footer-desc">Votre destination de confiance pour les parfums les plus emblématiques au monde.</p>
+    </div>
+    <div class="footer-col">
+      <h4>Navigation</h4>
+      <a href="/">Accueil</a>
+      <a href="/boutique">Nos Parfums</a>
+      <a href="/contact">Contact</a>
+    </div>
+    <div class="footer-col">
+      <h4>Contact</h4>
+      <a href="mailto:contact@eclatolfactif.com">contact@eclatolfactif.com</a>
+      <a href="tel:+33123456789">+33 1 23 45 67 89</a>
+    </div>
+    <div class="footer-col">
+      <h4>Suivez-nous</h4>
+      <a href="#">Instagram</a>
+      <a href="#">Facebook</a>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <p>&copy; 2025 Éclat Olfactif — Tous droits réservés</p>
+  </div>
+</footer>
+
+<script>
+  // Nav toggle
+  const toggle = document.getElementById('nav-toggle');
+  const links = document.getElementById('nav-links');
+  if (toggle) toggle.addEventListener('click', () => links.classList.toggle('open'));
+
+  // Cart count
+  const panier = JSON.parse(localStorage.getItem('panier')) || [];
+  const countEl = document.getElementById('cart-count');
+  if (countEl) countEl.textContent = panier.length;
+
+  // Contact form
+  const form = document.getElementById('contact-form');
+  const success = document.getElementById('form-success');
+  if (form) {
+    form.addEventListener('submit', (e) => {
+      e.preventDefault();
+      form.style.display = 'none';
+      success.style.display = 'block';
+    });
+  }
+</script>
 </body>
 </html>

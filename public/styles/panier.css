@@ -1,121 +1,205 @@
-/* Reset de base */
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
+/* ============================================
+   PANIER.CSS — Page panier
+   ============================================ */
+
+/* ---------- Hero ---------- */
+.panier-hero {
+  padding: 60px 0 30px;
+  background: var(--color-bg);
 }
 
-/* Corps */
-body {
-    font-family: 'Playwrite IN', sans-serif;
-    background-color: #fff0f3;
-    color: #333;
-    padding: 50px 20px;
+/* ---------- Content ---------- */
+.panier-content {
+  padding: 0 0 80px;
 }
 
-/* Titre */
-h1 {
-    text-align: center;
-    margin-bottom: 40px;
-    font-size: 2.5em;
-    color: #d6336c;
+.panier-layout {
+  display: grid;
+  grid-template-columns: 1fr 360px;
+  gap: 30px;
+  align-items: start;
 }
 
-/* Conteneur panier */
-#panier-container {
-    max-width: 900px;
-    margin: 0 auto;
-    background: #fff;
-    padding: 30px;
-    border-radius: 16px;
-    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.08);
+/* ---------- Items Card ---------- */
+.panier-items-card {
+  background: var(--color-bg-card);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+  overflow: hidden;
 }
 
-/* Élément du panier */
+.panier-items-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px 24px;
+  border-bottom: 1px solid var(--color-border);
+}
+
+.panier-items-header h3 {
+  font-family: var(--font-heading);
+  font-size: 20px;
+  color: var(--color-white);
+}
+
+/* Empty State */
+.panier-empty {
+  padding: 60px 24px;
+  text-align: center;
+}
+
+.panier-empty .empty-icon {
+  font-size: 48px;
+  display: block;
+  margin-bottom: 16px;
+  opacity: 0.4;
+}
+
+.panier-empty p {
+  color: var(--color-text-muted);
+  font-size: 16px;
+  margin-bottom: 20px;
+}
+
+/* Cart Item */
 .panier-item {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    border-bottom: 1px solid #eee;
-    padding: 20px 0;
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  padding: 20px 24px;
+  border-bottom: 1px solid var(--color-border);
+  transition: background var(--transition-fast);
+}
+
+.panier-item:last-child {
+  border-bottom: none;
+}
+
+.panier-item:hover {
+  background: rgba(201,169,110,0.03);
 }
 
 .panier-item img {
-    width: 90px;
-    height: 90px;
-    object-fit: cover;
-    border-radius: 12px;
-    margin-right: 25px;
+  width: 80px;
+  height: 80px;
+  object-fit: cover;
+  border-radius: var(--radius-sm);
+  flex-shrink: 0;
 }
 
-.panier-info {
-    flex: 1;
+.panier-item-info {
+  flex: 1;
 }
 
-.panier-info h3 {
-    font-size: 18px;
-    margin-bottom: 5px;
+.panier-item-info h4 {
+  font-family: var(--font-heading);
+  font-size: 16px;
+  color: var(--color-white);
+  margin-bottom: 4px;
 }
 
-.panier-info p {
-    font-size: 14px;
-    color: #777;
+.panier-item-info .item-price {
+  font-size: 16px;
+  font-weight: 700;
+  color: var(--color-gold);
 }
 
-/* Supprimer bouton */
 .remove-btn {
-    background-color: #ff6b6b;
-    color: white;
-    border: none;
-    padding: 8px 14px;
-    border-radius: 6px;
-    cursor: pointer;
-    transition: background 0.3s ease;
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  background: rgba(231,76,60,0.1);
+  border: 1px solid rgba(231,76,60,0.2);
+  color: var(--color-danger);
+  font-size: 14px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all var(--transition-base);
+  flex-shrink: 0;
 }
 
 .remove-btn:hover {
-    background-color: #e64949;
+  background: var(--color-danger);
+  color: white;
+  border-color: var(--color-danger);
+  transform: scale(1.1);
 }
 
-/* Total panier */
-#total {
-    text-align: right;
-    font-size: 22px;
-    font-weight: bold;
-    margin-top: 30px;
-    color: #222;
+/* ---------- Summary Card ---------- */
+.panier-summary-card {
+  background: var(--color-bg-card);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+  padding: 28px;
+  position: sticky;
+  top: 90px;
 }
 
-/* Bouton valider commande */
-#valider-commande {
-    display: block;
-    margin: 30px auto 10px;
-    padding: 14px 30px;
-    background-color: #d6336c;
-    color: white;
-    font-size: 16px;
-    border: none;
-    border-radius: 30px;
-    cursor: pointer;
-    transition: all 0.3s ease;
+.panier-summary-card h3 {
+  font-family: var(--font-heading);
+  font-size: 20px;
+  color: var(--color-white);
+  margin-bottom: 20px;
 }
 
-#valider-commande:hover {
-    background-color: #a61e4d;
+.summary-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 8px 0;
+  font-size: 14px;
+  color: var(--color-text-muted);
+}
+
+.summary-row.total {
+  font-size: 20px;
+  font-weight: 700;
+  color: var(--color-white);
+  padding: 12px 0;
+}
+
+.summary-row.total span:last-child {
+  color: var(--color-gold);
+}
+
+.summary-divider {
+  height: 1px;
+  background: var(--color-border);
+  margin: 10px 0;
 }
 
 /* Notification */
-#notification {
-    display: none;
-    text-align: center;
-    margin-top: 10px;
-    padding: 10px;
-    background-color: #ffe3e9;
-    color: #a61e4d;
-    border: 1px solid #f5c2cd;
-    border-radius: 10px;
-    max-width: 400px;
-    margin-left: auto;
-    margin-right: auto;
-    font-weight: 500;
+.notification {
+  display: none;
+  text-align: center;
+  margin-top: 16px;
+  padding: 12px;
+  background: rgba(201,169,110,0.1);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-sm);
+  color: var(--color-gold);
+  font-size: 13px;
+  font-weight: 500;
+}
+
+/* ---------- Responsive ---------- */
+@media (max-width: 768px) {
+  .panier-layout {
+    grid-template-columns: 1fr;
+  }
+
+  .panier-summary-card {
+    position: static;
+  }
+
+  .panier-item {
+    gap: 14px;
+    padding: 16px 18px;
+  }
+
+  .panier-item img {
+    width: 60px;
+    height: 60px;
+  }
 }

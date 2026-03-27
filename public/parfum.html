@@ -3,32 +3,74 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Détails du Parfum</title>
-  <link rel="stylesheet" href="styles/styles.css">
+  <meta name="description" content="Détails du parfum — Éclat Olfactif">
+  <title>Détails du Parfum — Éclat Olfactif</title>
+  <link rel="stylesheet" href="/styles/global.css">
+  <link rel="stylesheet" href="/styles/parfum.css">
 </head>
 <body>
 
-<!-- Barre de navigation principale -->
-<nav class="navbar">
-  <ul>
-    <li><a href="/">Accueil</a></li>
-    <li><a href="/boutique.html">Nos Parfums</a></li>
-    <li><a href="#">Contact</a></li>
-  </ul>
+<!-- Navigation -->
+<nav class="site-nav" id="site-nav">
+  <div class="nav-inner">
+    <a href="/" class="nav-brand">Éclat Olfactif</a>
+    <div class="nav-links" id="nav-links">
+      <a href="/">Accueil</a>
+      <a href="/boutique">Nos Parfums</a>
+      <a href="/contact">Contact</a>
+      <a href="/panier" class="nav-cart">
+        🛒 Panier <span class="cart-count" id="cart-count">0</span>
+      </a>
+    </div>
+    <button class="nav-toggle" id="nav-toggle" aria-label="Menu">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
 </nav>
 
-<!-- Section contenant les détails du parfum -->
-<section id="parfum-details" class="parfum-details-container">
-  <h2 id="parfum-name"></h2>
+<!-- Main Content -->
+<main>
+  <section class="parfum-detail-section">
+    <div class="container">
+      <a href="/boutique" class="back-link">← Retour à la boutique</a>
+      <div class="parfum-detail" id="parfum-details">
+        <div class="detail-loading">
+          <p>Chargement...</p>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>
 
-  <!-- Zone où les informations du parfum seront insérées dynamiquement -->
-  <div id="parfum-info">
-    <!-- Les informations du parfum seront injectées ici -->
+<!-- Footer -->
+<footer class="site-footer">
+  <div class="footer-inner">
+    <div class="footer-about">
+      <div class="footer-brand">Éclat Olfactif</div>
+      <p class="footer-desc">Votre destination de confiance pour les parfums les plus emblématiques au monde.</p>
+    </div>
+    <div class="footer-col">
+      <h4>Navigation</h4>
+      <a href="/">Accueil</a>
+      <a href="/boutique">Nos Parfums</a>
+      <a href="/contact">Contact</a>
+    </div>
+    <div class="footer-col">
+      <h4>Contact</h4>
+      <a href="mailto:contact@eclatolfactif.com">contact@eclatolfactif.com</a>
+    </div>
+    <div class="footer-col">
+      <h4>Suivez-nous</h4>
+      <a href="#">Instagram</a>
+      <a href="#">Facebook</a>
+    </div>
   </div>
-</section>
+  <div class="footer-bottom">
+    <p>&copy; 2025 Éclat Olfactif — Tous droits réservés</p>
+  </div>
+</footer>
 
-<!-- Script JavaScript pour charger dynamiquement les détails du parfum -->
-<script src="scripts/parfum.js"></script>
-
+<div class="toast-container" id="toast-container"></div>
+<script src="/scripts/parfum.js"></script>
 </body>
 </html>

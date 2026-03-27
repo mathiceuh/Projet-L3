@@ -3,35 +3,122 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Mon Panier - Éclat Olfactif</title>
-  <link rel="stylesheet" href="styles/panier.css">
+  <meta name="description" content="Votre panier — Éclat Olfactif. Consultez et gérez vos articles sélectionnés.">
+  <title>Mon Panier — Éclat Olfactif</title>
+  <link rel="stylesheet" href="/styles/global.css">
+  <link rel="stylesheet" href="/styles/panier.css">
 </head>
 <body>
 
-<!-- En-tête avec le titre de la page et un lien de retour vers la boutique -->
-<header>
-  <h1>🛒 Mon Panier</h1>
-  <a href="/boutique.html">← Retour à la boutique</a>
-</header>
-
-<main>
-  <!-- Conteneur du panier (rempli dynamiquement en JavaScript) -->
-  <div id="panier-container">
-    <p>Votre panier est vide.</p>
+<!-- Navigation -->
+<nav class="site-nav" id="site-nav">
+  <div class="nav-inner">
+    <a href="/" class="nav-brand">Éclat Olfactif</a>
+    <div class="nav-links" id="nav-links">
+      <a href="/">Accueil</a>
+      <a href="/boutique">Nos Parfums</a>
+      <a href="/contact">Contact</a>
+      <a href="/panier" class="nav-cart active">
+        🛒 Panier <span class="cart-count" id="cart-count">0</span>
+      </a>
+    </div>
+    <button class="nav-toggle" id="nav-toggle" aria-label="Menu">
+      <span></span><span></span><span></span>
+    </button>
   </div>
+</nav>
 
-  <!-- Bouton pour vider complètement le panier -->
-  <button id="vider-panier">❌ Vider le panier</button>
+<!-- Main Content -->
+<main>
+  <section class="panier-hero">
+    <div class="container">
+      <div class="section-header">
+        <h2>Mon Panier</h2>
+        <p>Consultez et gérez vos articles sélectionnés</p>
+        <div class="gold-line"></div>
+      </div>
+    </div>
+  </section>
 
-  <!-- Bouton pour valider la commande -->
-  <button id="valider-commande">Valider la commande</button>
+  <section class="panier-content">
+    <div class="container">
+      <div class="panier-layout">
+        <!-- Cart Items -->
+        <div class="panier-items-card">
+          <div class="panier-items-header">
+            <h3>Articles</h3>
+            <button class="btn btn-danger btn-sm" id="vider-panier">Vider le panier</button>
+          </div>
+          <div id="panier-container">
+            <div class="panier-empty">
+              <span class="empty-icon">🛒</span>
+              <p>Votre panier est vide</p>
+              <a href="/boutique" class="btn btn-outline btn-sm">Découvrir nos parfums</a>
+            </div>
+          </div>
+        </div>
 
-  <!-- Message de notification temporaire pour fonctionnalité à venir -->
-  <div id="notification">🚧 Cette fonctionnalité sera disponible prochainement !</div>
+        <!-- Cart Summary -->
+        <div class="panier-summary-card">
+          <h3>Récapitulatif</h3>
+          <div class="summary-row">
+            <span>Articles</span>
+            <span id="summary-count">0</span>
+          </div>
+          <div class="summary-row">
+            <span>Sous-total</span>
+            <span id="summary-subtotal">0 €</span>
+          </div>
+          <div class="summary-row">
+            <span>Livraison</span>
+            <span class="text-gold">Gratuite</span>
+          </div>
+          <div class="summary-divider"></div>
+          <div class="summary-row total">
+            <span>Total</span>
+            <span id="summary-total">0 €</span>
+          </div>
+          <button class="btn btn-gold" id="valider-commande" style="width:100%;margin-top:20px;">
+            Valider la commande
+          </button>
+          <div class="notification" id="notification">
+            🚧 Cette fonctionnalité sera disponible prochainement !
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
 </main>
 
-<!-- Lien vers le script JavaScript qui gère le panier -->
-<script src="scripts/panier.js"></script>
+<!-- Footer -->
+<footer class="site-footer">
+  <div class="footer-inner">
+    <div class="footer-about">
+      <div class="footer-brand">Éclat Olfactif</div>
+      <p class="footer-desc">Votre destination de confiance pour les parfums les plus emblématiques au monde.</p>
+    </div>
+    <div class="footer-col">
+      <h4>Navigation</h4>
+      <a href="/">Accueil</a>
+      <a href="/boutique">Nos Parfums</a>
+      <a href="/contact">Contact</a>
+    </div>
+    <div class="footer-col">
+      <h4>Contact</h4>
+      <a href="mailto:contact@eclatolfactif.com">contact@eclatolfactif.com</a>
+    </div>
+    <div class="footer-col">
+      <h4>Suivez-nous</h4>
+      <a href="#">Instagram</a>
+      <a href="#">Facebook</a>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <p>&copy; 2025 Éclat Olfactif — Tous droits réservés</p>
+  </div>
+</footer>
 
+<div class="toast-container" id="toast-container"></div>
+<script src="/scripts/panier.js"></script>
 </body>
 </html>
